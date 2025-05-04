@@ -1,47 +1,306 @@
-body{
-    background-color: rgba(180, 200, 175, 0.78);
-     margin: 0;
- }
- h1{
-     color: rgb(61, 59, 59);
-     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-     text-align: center;
-     margin-top: 4%;
-     font-size:50px;
-     text-decoration: underline;
- }
- #titre2{
-     color: rgb(61, 59, 59);
-     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-     text-align: center;
- }
- .conteneur{
-     display: flex;
-     position: absolute;
-     width: 100%;
-     justify-content: space-evenly;
-     flex-wrap: wrap;
- }
- .box img{
-     position: relative;
-     width: 250px;
- }
- .box h2{
-     color: rgb(61, 59, 59);
-     text-align: center;
- }
- section a{
-     text-decoration: none;
- }
- .box{
-     background-color: rgba(180, 200, 175, 0.78);
-     border-radius: 25px;
-     margin-bottom: 20px;
-     padding: 20px;
-     transition: 0.5s;
- }
- .box:hover{
-     background-color: rgba(180, 200, 175, 0.78);
-     padding: 30px;
-     transition: 0.4s;
- }
+/* ====== BASE ====== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.hidden {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+/* ====== HEADER ====== */
+header {
+    position: relative;
+    background: #333;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.logo {
+    max-height: 80px;
+    width: auto;
+}
+
+.titre-nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* ====== NAVIGATION ====== */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ====== SECTIONS ====== */
+section {
+    padding: 50px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(180, 200, 175, 0.78);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(180, 200, 175, 0.78);
+}
+
+/* ====== PROJETS ====== */
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.project img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project img:hover {
+    transform: scale(1.1);
+}
+
+.project a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ====== BOXES ====== */
+.box {
+    display: inline-block;
+    margin: 15px;
+    width: 250px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.box h2, .box h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ====== CONTACT ====== */
+.contact-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #435043;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #435043;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-button:hover,
+.contact-button:active {
+    background-color: #262726;
+    transform: scale(1.05);
+}
+
+/* ====== FOOTER ====== */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .logo-container {
+        position: static;
+        transform: none;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .box {
+        width: 90%;
+        margin: 10px auto;
+        display: block;
+    }
+
+    /* Masquer la barre de navigation classique sur mobile */
+    .nav {
+        display: none;
+    }
+
+    /* Afficher le bouton hamburger */
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    /* Afficher le menu mobile latéral */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        color: white;
+        z-index: 1000;
+        transition: right 0.3s ease;
+        padding-top: 60px;
+        display: none; /* Cacher par défaut */
+    }
+
+    /* Menu mobile affiché */
+    .mobile-nav.active {
+        right: 0;
+        display: block; /* Afficher le menu mobile */
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobile-nav ul li {
+        padding: 15px 20px;
+        border-bottom: 1px solid #444;
+    }
+
+    .mobile-nav ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        font-size: 18px;
+    }
+}
+
+.menu-toggle {
+    display: none; /* cachée par défaut (grand écran) */
+}
+
+/* Affiche le menu desktop uniquement sur grand écran */
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: block;
+    }
+
+    .mobile-nav,
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Sur mobile : active le bouton hamburger et ajuste la section projets */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    section#projets {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+}
